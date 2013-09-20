@@ -1,12 +1,16 @@
 {
-  "name": "post-it",
-  "version": "0.0.1",
+  "name": "postIt",
+  "version": "0.0.0",
   "dependencies": {
-    "angular": "~1.2.0"
+    "angular": "~1.2.0",
+    "json3": "~3.2.4",
+    "jquery": "latest",
+    "bootstrap-sass": "latest",
+    "es5-shim": "latest",
+    "angular-route": "~1.2.0-rc.2"
   },
   "devDependencies": {
-    "angular": "~1.2.0",
     "angular-mocks": "~1.2.0",
-    "jquery": "latest"
+    "angular-scenario": "~1.2.0"
   }
 }

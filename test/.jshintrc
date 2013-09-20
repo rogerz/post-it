@@ -3,8 +3,8 @@
   "browser": true,
   "esnext": true,
   "bitwise": true,
-  "camelcase": false,
-  "curly": false,
+  "camelcase": true,
+  "curly": true,
   "eqeqeq": true,
   "immed": true,
   "indent": 2,
@@ -14,19 +14,22 @@
   "quotmark": "single",
   "regexp": true,
   "undef": true,
-  "unused": false,
+  "unused": true,
   "strict": true,
-  "globalstrict": true,
   "trailing": true,
   "smarttabs": true,
-  "predef": [
-    "$",
-    "angular",
-    "describe",
-    "beforeEach",
-    "afterEach",
-    "inject",
-    "it",
-    "expect"
-  ]
+  "globals": {
+    "after": false,
+    "afterEach": false,
+    "angular": false,
+    "before": false,
+    "beforeEach": false,
+    "browser": false,
+    "describe": false,
+    "expect": false,
+    "inject": false,
+    "it": false,
+    "spyOn": false
+  }
 }
+

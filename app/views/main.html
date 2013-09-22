@@ -2,14 +2,7 @@
   <post-it-form></post-it-form>
 </div>
 <div>
-  <post-it-wall></post-it-wall>
-</div>
-<div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+  <post-it-wall cols="4" rows="4">
+    <img class="post-it-on-wall" ng-repeat="postIt in postItList" ng-src="{{postIt.src}}" style="{{wallStyles[$index]}}"></img>
+  </post-it-wall>
 </div>

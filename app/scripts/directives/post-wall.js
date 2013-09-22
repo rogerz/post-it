@@ -1,6 +1,9 @@
 'use strict';
 
 angular.module('postItApp')
+  /*
+    A form to manage the post-it list. Add/remove post-it manually.
+   */
   .directive('postItForm', function () {
     function controller($scope) {
       $scope.newPostIt = {};
@@ -32,10 +35,24 @@ angular.module('postItApp')
   })
   .directive('postItWall', function () {
     return {
-      template: '<div></div>',
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
-        element.text('this is the postWall directive');
+        var gridStyles = [];
+
+        function createStyle(prop, value) {
+          return prop + ':' + value;
+        }
+
+        for (var i = 0; i < attrs.rows; i++) {
+          for (var j = 0; j < attrs.cols; j++) {
+            gridStyles.push([
+              createStyle('position', 'absolute'),
+              createStyle('top', i / attrs.rows * 100 + '%'),
+              createStyle('left', j / attrs.cols * 100 + '%')
+            ].join(';'));
+          }
+        }
+        scope.wallStyles = gridStyles;
       }
     };
   });

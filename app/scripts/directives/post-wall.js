@@ -55,4 +55,26 @@ angular.module('postItApp')
         scope.wallStyles = gridStyles;
       }
     };
+  })
+  .animation('.post-it-animate', function () {
+    return {
+      enter: function (element, done) {
+        jQuery(element).css({
+          opacity: 0
+        });
+        jQuery(element).animate({
+          opacity: 1
+        }, done);
+        return function (cancelled) {
+          if (cancelled) {
+            jQuery(element).stop();
+          }
+        };
+      },
+      leave: function (element, done) {
+        jQuery(element).animate({
+          opacity: 0
+        }, done);
+      }
+    };
   });

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('postItApp', ['ngRoute'])
+angular.module('postItApp', ['ngRoute', 'ngAnimate'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

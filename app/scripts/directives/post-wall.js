@@ -45,7 +45,8 @@ angular.module('postItApp')
               slots.push({
                 top: i / rows * 100 + '%',
                 left: j / cols * 100 + '%',
-                width: 1 / rows * 100 + '%'
+                width: 1 / cols * 100 + '%',
+                height: 1 / rows * 100 + '%'
               });
             }
           }
@@ -67,13 +68,15 @@ angular.module('postItApp')
           opacity: 0,
           left: 0,
           top: 0,
-          width: '100%'
+          width: '100%',
+          height: '100%'
         });
         jQuery(element).animate({
           opacity: 1,
           top: styles.top,
           left: styles.left,
-          width: styles.width
+          width: styles.width,
+          height: styles.height
         }, done);
         return function (cancelled) {
           if (cancelled) {

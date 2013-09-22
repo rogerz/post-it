@@ -11,7 +11,22 @@ post-it-wall {
     height: 100%;
     z-index: -10;
 }
+
 .post-it-item {
     position: absolute;
-    padding: auto 0 auto 0;
+}
+
+.post-it-item img {
+    /*
+       Align vertically and fit width 
+       Method 4 in http://blog.themeforest.net/tutorials/vertical-centering-with-css/
+     */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto 0 auto 0;
+    width: 100%;
+    height: auto;
 }

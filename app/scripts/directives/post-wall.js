@@ -16,7 +16,6 @@ angular.module('postItApp')
     })();
     function controller($scope, $timeout) {
       $scope.newPostIt = {};
-      $scope.postItList = [];
 
       $scope.submitPostIt = function () {
         var newPostIt = {

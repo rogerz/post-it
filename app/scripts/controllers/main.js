@@ -9,4 +9,5 @@ angular.module('postItApp')
     ];
     $scope.config = {
     };
+    $scope.postItList = [];
   });

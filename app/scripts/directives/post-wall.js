@@ -2,9 +2,9 @@
 
 angular.module('postItApp')
   /*
-    A form to manage the post-it list. Add/remove post-it manually.
+    A config panel to manage the post-it list. Add/remove post-it manually.
    */
-  .directive('postItForm', function () {
+  .directive('postItPanel', function () {
     function controller($scope) {
       $scope.newPostIt = {};
       $scope.postItList = [
@@ -50,12 +50,21 @@ angular.module('postItApp')
               });
             }
           }
+          //+ Jonas Raoni Soares Silva
+          //@ http://jsfromhell.com/array/shuffle [v1.0]
+          function shuffle(o) { //v1.0
+            for (var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+            return o;
+          }
+
+          slots = shuffle(slots);
+
           return function (index) {
             return slots[index % (rows * cols)];
           };
         })(attrs.rows, attrs.cols);
-        scope.postItPos = function (index) {
-          return gridPos(index);
+        scope.postItPos = function (index, slot) {
+          return gridPos(index, slot);
         };
       }
     };

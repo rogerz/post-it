@@ -37,33 +37,43 @@ angular.module('postItApp')
     return {
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
-        var gridStyles = [];
-
-        function createStyle(prop, value) {
-          return prop + ':' + value;
-        }
-
-        for (var i = 0; i < attrs.rows; i++) {
-          for (var j = 0; j < attrs.cols; j++) {
-            gridStyles.push([
-              createStyle('position', 'absolute'),
-              createStyle('top', i / attrs.rows * 100 + '%'),
-              createStyle('left', j / attrs.cols * 100 + '%')
-            ].join(';'));
+        var gridPos = (function (rows, cols) {
+          var slots = [],
+              i, j;
+          for (i = 0; i < rows; i++) {
+            for (j = 0; j < cols; j++) {
+              slots.push({
+                top: i / rows * 100 + '%',
+                left: j / cols * 100 + '%',
+                width: 1 / rows * 100 + '%'
+              });
+            }
           }
-        }
-        scope.wallStyles = gridStyles;
+          return function (index) {
+            return slots[index % (rows * cols)];
+          };
+        })(attrs.rows, attrs.cols);
+        scope.postItPos = function (index) {
+          return gridPos(index);
+        };
       }
     };
   })
-  .animation('.post-it-animate', function () {
+  .animation('.post-it-item', function () {
     return {
       enter: function (element, done) {
+        var styles = JSON.parse(jQuery(element).attr('post-it-pos'));
         jQuery(element).css({
-          opacity: 0
+          opacity: 0,
+          left: 0,
+          top: 0,
+          width: '100%'
         });
         jQuery(element).animate({
-          opacity: 1
+          opacity: 1,
+          top: styles.top,
+          left: styles.left,
+          width: styles.width
         }, done);
         return function (cancelled) {
           if (cancelled) {

@@ -1,8 +1,5 @@
-<div>
-  <post-it-form></post-it-form>
-</div>
-<div>
-  <post-it-wall cols="4" rows="4">
-    <img class="post-it-animate" ng-repeat="postIt in postItList" ng-src="{{postIt.src}}" style="{{wallStyles[$index]}}"></img>
-  </post-it-wall>
-</div>
+<post-it-form></post-it-form>
+<post-it-wall cols="4" rows="4">
+  <img class="post-it-item" ng-repeat="postIt in postItList" ng-src="{{postIt.src}}"
+       post-it-pos="{{postItPos($index)}}"></img>
+</post-it-wall>

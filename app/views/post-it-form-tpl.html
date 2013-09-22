@@ -1,6 +1,6 @@
-<form ng-submit="addPostIt()">
+<form ng-submit="submitPostIt()">
   <img class="post-it-preview" ng-src="{{newPostIt.src}}" alt="invalid"></img>
-  <input ng-model="newPostIt.src" autofocus></input>
+  <input ng-model="newPostIt.src" autofocus value="http://china.nba.com/media/teamLogos/medium/BKN.png"></input>
   <button ng-click="addpostIt()">Add</button>
 </form>
 <ul>

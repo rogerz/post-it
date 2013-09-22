@@ -7,4 +7,6 @@ angular.module('postItApp')
       'AngularJS',
       'Karma'
     ];
+    $scope.config = {
+    };
   });

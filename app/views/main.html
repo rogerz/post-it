@@ -1,6 +1,6 @@
 <post-it-panel></post-it-panel>
-<post-it-wall cols="16" rows="9">
-  <div class="post-it-item" ng-repeat="postIt in postItList" post-it-pos="{{postItPos($index)}}">
+<post-it-wall cols="4" rows="3" capacity="25%">
+  <div class="post-it-item" ng-repeat="postIt in postItList" post-it-id="{{postIt.id}}" ng-style="postIt.style">
     <img ng-src="{{postIt.src}}"></img>
   </div>
 </post-it-wall>
